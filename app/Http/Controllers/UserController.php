@@ -13,32 +13,32 @@ class UserController extends Controller
     }
     public function user_manage(){
         $users=User::all();
-      
+
         return view('backend.layouts.users.manageuser',compact('users'));
     }
     public function useredit($id)
 
     {
-        
+
         $users=User::find($id);
          //dd($customers->all());
 
         return view('backend.layouts.users.edituser',compact('users'));
 
     }
-   
+
     public function postuser(Request $request){
-        
-        
-       
+
+
+
         User::create([
-            
+
             'username'=>$request->name,
             'fullname'=>$request->fullname,
-            'type'=>$request->designation,
+            'type'=>$request->rolls,
             'phone'=>$request->phone,
             'password'=>bcrypt($request->password)
-             
+
 
         ]);
         return redirect()->route('user.manage');
@@ -63,10 +63,10 @@ class UserController extends Controller
 
 
         $users->update([
-            
+
             'fullname'=>$request->fullname,
              'phone'=>$request->phone,
-           
+
 
         ]);
 

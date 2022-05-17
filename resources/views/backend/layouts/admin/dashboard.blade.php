@@ -8,45 +8,45 @@
         <span class="count_top"><i class="fa fa-money"></i> Total Purchase value </span>
         <div class="count"></div>
         <span class="count_bottom"><i class="green"> </i> </span>
-        <h3>{{$purchase_value}}</h3>
+
     </div>
 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-dollar"></i> Total Sale value </span>
         <div class="count"></div>
         <span class="count_bottom"><i class="green"></i></span>
-        <h3>{{$sale_value}}</h3>
+
     </div>
-   
+
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-book"></i>Total Products</span>
         <div class="count"></div>
         <span class="count_bottom"><i class="green"> </i></span>
-       <h3>{{$product}}</h3>
-        
+
+
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Total Suppliers</span>
         <div class="count"></div>
         <span class="count_bottom"><i class="red"> </i> </span>
-        <h3>{{$supplier}}</h3>
+
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Total Customers</span>
         <div class="count green"></div>
         <span class="count_bottom"><i class="green"></i> </span>
-        <h3>{{$customer}}</h3>
+
     </div>
-   
+
 
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
         <div class="count"></div>
         <span class="count_bottom"><i class="green"></i> </span>
-        <h3>{{$user}}</h3>
+        {{-- <h3>{{$user}}</h3> --}}
     </div>
-    
-    
-   
-    
+
+
+
+
 
     @endsection

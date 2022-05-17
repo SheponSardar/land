@@ -16,7 +16,7 @@ class CheckManager
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check() && auth()->user()->type=='manager')
+        if(auth()->check() && auth()->user()->type=='register')
         {
             return $next($request);
         }

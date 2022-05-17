@@ -16,7 +16,7 @@ class CheckSeller
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check() && auth()->user()->type=='seller')
+        if(auth()->check() && auth()->user()->type=='client')
         {
             return $next($request);
         }
