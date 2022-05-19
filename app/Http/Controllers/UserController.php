@@ -12,7 +12,7 @@ class UserController extends Controller
         return view('backend.layouts.users.adduser');
     }
     public function user_manage(){
-        $users=User::all();
+        $users=User::where('type','register')->get();
 
         return view('backend.layouts.users.manageuser',compact('users'));
     }
@@ -35,7 +35,9 @@ class UserController extends Controller
 
             'username'=>$request->name,
             'fullname'=>$request->fullname,
-            'type'=>$request->rolls,
+            'email'=> $request->email,
+             'address'=>$request->address,
+            'type'=>$request->designation,
             'phone'=>$request->phone,
             'password'=>bcrypt($request->password)
 

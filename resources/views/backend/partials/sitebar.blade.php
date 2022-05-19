@@ -18,18 +18,38 @@
                 <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard </a>
 
             </li>
+            <li>
 
+                <a href="{{route('pos')}}"><i class="fa fa-cart-plus"></i>POS</a>
+
+
+            </li>
 
 
             <li>
-                <a><i class="fa fa-users"></i>Users<span class="fa fa-chevron-down"></span></a>
+                <a><i class="fa fa-users"></i>Register<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="{{route('add.user')}}">Add user</a></li>
-                    <li><a href="{{route('user.manage')}}">Manage users</a></li>
+                    <li><a href="{{route('add.user')}}">Add Register</a></li>
+                    <li><a href="{{route('user.manage')}}">Manage Register</a></li>
 
 
                 </ul>
             </li>
+
+            <li>
+                <a><i class="fa fa-users"></i>Client<span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="{{route('add.customer')}}">Add Client</a></li>
+                    <li><a href="{{route('customer.manage')}}">Manage Client</a></li>
+
+
+                </ul>
+            </li>
+
+
+
+
+
 
 
 
@@ -45,11 +65,30 @@
 
         @if(auth()->user()->type=='register')
 
-
         <li>
-            <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard </a>
+
+            <a href="{{route('pos')}}"><i class="fa fa-cart-plus"></i>POS</a>
+
 
         </li>
+
+
+
+
+        <li>
+            <a><i class="fa fa-users"></i>Client<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="{{route('add.customer')}}">Add Client</a></li>
+                <li><a href="{{route('customer.manage')}}">Manage Client</a></li>
+
+
+            </ul>
+        </li>
+
+
+
+
+
 
 
 
@@ -62,18 +101,14 @@
         </ul>
 
         </ul>
-
         @endif
 
         @if(auth()->user()->type=='client')
 
-
-
-
-
-
         <li>
-            <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard </a>
+
+            <a href="{{route('pos')}}"><i class="fa fa-cart-plus"></i>POS</a>
+
 
         </li>
 
@@ -81,6 +116,8 @@
 
 
 
+
+        
 
 
         <li>

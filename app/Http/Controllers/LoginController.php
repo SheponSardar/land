@@ -26,10 +26,10 @@ class LoginController extends Controller
                 return redirect()->route('dashboard');
             }
             elseif(auth()->user()->type=='register'){
-                return redirect()->route('dashboard');
+                return redirect()->route('pos');
             }
             elseif(auth()->user()->type=='client'){
-                return redirect()->route('dashboard');
+                return redirect()->route('pos');
             }
             else{
                 Auth::logout();

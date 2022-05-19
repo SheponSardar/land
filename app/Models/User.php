@@ -18,6 +18,9 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $guarded=[];
+    public function customer(){
+        return $this->belongsTo(Customer::class,'type','id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

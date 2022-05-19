@@ -45,6 +45,31 @@
                             </div>
 
 
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input require id="email" class="form-control col-md-7 col-xs-12"
+                                        data-validate-length-range="6" data-validate-words="2" name="email"
+                                        placeholder="Enter email" type="email">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Address
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input require type="text" id="address" name="address" data-validate-linked="address"
+                                        placeholder="Enter address"
+                                        class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+
 
 
 
@@ -53,9 +78,10 @@
 
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select id="designation" name="rolls">
+                                    <select id="designation" name="designation">
                                         <option value="register">Register</option>
-                                        <option value="client">Client</option>
+                                        
+
                                     </select>
                                 </div>
                             </div>
