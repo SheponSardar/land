@@ -29,7 +29,7 @@
 
                     <div class="x_content">
 
-                        <form action="{{route('addcart')}}" method="post" class="form-horizontal form-label-left"
+                        <form action="{{route('cart_post')}}" method="post" class="form-horizontal form-label-left"
                             novalidate>
 
 
@@ -37,32 +37,97 @@
                             @csrf
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Product name
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Customer
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select type="text" id="CustomerName" name="name" required="required"
+                                        class="form-control col-md-7 col-xs-12">
+
+                                        @foreach ($user as $customer)
+
+
+                                        <option value="{{$customer->fullname}}">{{$customer->fullname}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="designation">District
 
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select type="text" id="ProductName" name="name" required="required"
-                                        class="form-control col-md-7 col-xs-12">
-                                        @foreach ($products as $product)
+                                    <select id="designation" name="distric">
 
+                                        <option value="Faridpur">Faridpur</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
 
-                                        <option value="{{$product->id}}">{{$product->product->name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="designation">Sub-District
 
-                                        @endforeach
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select id="designation" name="subdistric">
+
+                                        <option value="nagarkanda">nagarkanda</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
 
                                     </select>
                                 </div>
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Quantity
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Mouza
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="quantity" class="form-control col-md-7 col-xs-12"
-                                        data-validate-length-range="6" data-validate-words="2" name="quantity"
-                                        placeholder="Enter quantity" type="text">
+                                        data-validate-length-range="6" data-validate-words="2" name="mouza"
+                                        placeholder="Mouza" type="text">
                                 </div>
                             </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Khatiyan No
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="quantity" class="form-control col-md-7 col-xs-12"
+                                        data-validate-length-range="6" data-validate-words="2" name="khatiyan"
+                                        placeholder="Khatiyan No" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Dag No
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="quantity" class="form-control col-md-7 col-xs-12"
+                                        data-validate-length-range="6" data-validate-words="2" name="dag"
+                                        placeholder="Dag No" type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Yearly Tax
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="quantity" class="form-control col-md-7 col-xs-12"
+                                        data-validate-length-range="6" data-validate-words="2" name="tax"
+                                        placeholder="Yearly Tax" type="text">
+                                </div>
+                            </div>
+
+
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
@@ -72,109 +137,16 @@
                             </div>
 
                         </form>
-                        @php
-                        $cart = session()->get('cart');
-                        $total=0;
-                        @endphp
-                        <br>
-                        <br>
-
-                        <form action="" method="post" class="form-horizontal form-label-left" novalidate>
-                            @csrf
-                            <table class="table">
-
-                                <thead>
-                                    <tr>
-
-                                        <th>SL</th>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Sub total</th>
-                                        <th><i class="fa fa-trash"></th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if ($cart)
-
-                                    @foreach ($cart as $carts)
-
-                                    @php
-                                    $subtotal=$carts['price']*$carts['qty'];
-                                    $total=$subtotal+ $total
-                                    @endphp
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{$carts['name']}}</td>
-                                        <td>{{$carts['qty']}}</td>
-                                        <td>{{$carts['price']}}</td>
-                                        <td>{{ $subtotal }}</td>
-                                        <td><a href="{{route('forget')}}"><i class="fa fa-trash"></i></a></td>
 
 
 
-                                    </tr>
-                                    @endforeach
-                                    @endif
-
-                                </tbody>
-
-                            </table>
-                            <tr>
-                                <th>Total: {{ $total }} TK</th>
-                            </tr>
 
 
-                        </form>
-                        <br>
-                        <br>
-                        <br>
 
 
-                        <form action="{{route('cartpost')}}" method="post" class="form-horizontal form-label-left"
-                            novalidate>
-
-                            @csrf
-
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Date
-
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input required type="date" value="{{ date('Y-m-d') }}" min="{{ date('Y-m-d') }}"
-                                        class="form-control" id="sale_date" name="sale_date">
-                                </div>
-                            </div>
-
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Customer
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select type="text" id="CustomerName" name="name" required="required"
-                                        class="form-control col-md-7 col-xs-12">
-
-                                        @foreach ($customers as $customer)
 
 
-                                        <option value="{{$customer->id}}">{{$customer->name}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">submit</button>
-
-                                </div>
-                            </div>
-                        </form>
+                    </form>
                     </div>
                 </div>
             </div>

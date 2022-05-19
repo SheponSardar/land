@@ -50,14 +50,14 @@ class CustomerController extends Controller
     public function customerdelete($id)
     {
 
-        $customer=Customer::find($id);
+        $user=User::find($id);
         // dd($customer);
-        if ($customer){
-            $customer->delete();
-            return redirect()->back()->with('message','Customer is Deleted');
+        if ($user){
+            $user->delete();
+            return redirect()->back()->with('message','User is Deleted');
 
         }
-        return redirect()->back()->with('message','Customer is not Deleted');
+        return redirect()->back()->with('message','User is not Deleted');
     }
     public function customerupdate (Request $request, $id)
     {
