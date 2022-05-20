@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Point of Sale </h3>
+                <h3>Land Registation </h3>
                 <div>
 
 
@@ -33,11 +33,11 @@
                             novalidate>
 
 
-                            <span class="section">POS</span>
+                            <span class="section">Registation Form</span>
                             @csrf
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Customer
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Landowner name
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select type="text" id="CustomerName" name="name" required="required"
@@ -46,7 +46,7 @@
                                         @foreach ($user as $customer)
 
 
-                                        <option value="{{$customer->fullname}}">{{$customer->fullname}}</option>
+                                        <option value="{{$customer->username}}">{{$customer->fullname}}</option>
 
                                         @endforeach
 

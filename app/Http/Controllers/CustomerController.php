@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\User;
+use App\Models\Sale;
 
 use Illuminate\Http\Request;
 
@@ -77,5 +78,10 @@ class CustomerController extends Controller
 
         return redirect()->route('customer.manage')->with('message','Customer Information is Updated');
 
+    }
+    public function clientdashboard(){
+        $client=Sale::all();
+        dd($client);
+        return view('backend.layouts.client.clientdash',compact('client'));
     }
 }

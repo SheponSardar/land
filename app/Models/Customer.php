@@ -9,4 +9,10 @@ class Customer extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    public function sale(){
+
+        return $this->belongsto(Sale::class);
+
+        }
 }

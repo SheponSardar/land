@@ -29,7 +29,7 @@ class LoginController extends Controller
                 return redirect()->route('pos');
             }
             elseif(auth()->user()->type=='client'){
-                return redirect()->route('pos');
+                return redirect()->route('clientdashboard');
             }
             else{
                 Auth::logout();

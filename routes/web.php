@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\StockController;
 use App\Http\Controllers\backend\PurchaseController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ReportController;
+use App\Http\Controllers\backend\ClientController;
 
 
 
@@ -82,6 +83,7 @@ Route::get('/customer/edit/{id}',[CustomerController::class,'customeredit'])->na
 Route::get('/customer/delete/{id}',[CustomerController::class,'customerdelete'])->name('customer.delete');
 Route::put('/customer/update/{id}',[CustomerController::class,'customerupdate'])->name('customer.update');
 
+Route::get('/client/dashboard',[CustomerController::class,'clientdashboard'])->name('clientdashboard');
 
 
 

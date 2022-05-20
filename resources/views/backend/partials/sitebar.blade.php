@@ -107,7 +107,10 @@
 
         <li>
 
-            <a href="{{route('pos')}}"><i class="fa fa-cart-plus"></i>POS</a>
+            <li>
+                <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard </a>
+
+            </li>
 
 
         </li>
@@ -117,7 +120,7 @@
 
 
 
-        
+
 
 
         <li>
