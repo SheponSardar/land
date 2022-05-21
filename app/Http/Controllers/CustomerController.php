@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\Sale;
 
@@ -80,8 +81,10 @@ class CustomerController extends Controller
 
     }
     public function clientdashboard(){
-        $client=Sale::all();
-        dd($client);
-        return view('backend.layouts.client.clientdash',compact('client'));
+        // dd();
+        $client=Sale::where('name',auth()->user()->username)->get();
+        // dd($client);
+        $payments = Payment::where('user_id',auth()->user()->id)->get();
+        return view('backend.layouts.client.clientdash',compact('client','payments'));
     }
 }
